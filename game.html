@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link href="https://fonts.googleapis.com/css?family=Cookie|Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+	</head>
+
+	<body>
+
+		<audio controls autoplay loop>
+  		<source src="audio/bensound-ukulele.mp3" type="audio/mp3">
+		</audio>
+
+			<div id="background"></div>
+			<h1 id="gameTitle">Biscuit Bonanza</h1>
+			<div> <!--count display -->
+				<table id ="countDisplay"><tr><td><img src="images\big_biscuit.png"></td><td id="biscuitCount"> </td></tr></table>
+			 </div> <!--end of count display -->
+
+			<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+			<script src="js/Graphics.js"></script>
+			<script src="js/Images.js"></script>
+			<script src="js/Player.js"></script>
+			<script src="js/Map.js"></script>
+			<script src="js/Controls.js"></script>
+			<script src="js/Main.js"></script>
+
+	</body>
+</html>
