@@ -22,7 +22,7 @@ function imageLoadingComplete() {
 }
 
 function loadLevel(level) {
-	gridMap = level.slice();
+	gridMap = level; //.slice() - use to reset when click new game
 	player1.reset(playerImage, "Player One");
 }
 
@@ -33,7 +33,7 @@ function updateAll() {
 
 function moveAll() {
 	player1.move();
-	//player1.camera();
+
 }
 
 function drawAll() {
