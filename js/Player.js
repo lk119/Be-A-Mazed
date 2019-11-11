@@ -3,8 +3,8 @@ const PLAYER_SPEED = 3.0;
 function playerClass() {
 	this.x = 75;
 	this.y = 75;
-	this.myplayerImage;
-	this.name = "Untitled Player";
+	this.playerImage;
+	this.playerName = "Untitled Player";
 	this.biscuitEaten = 0;
 
 	this.keyHeld_Up = false;
@@ -23,31 +23,34 @@ function playerClass() {
 		this.controlKeyDown = downKey;
 		this.controlKeyLeft = leftKey;
 	}
-
+	//what happens on reset
 	this.reset = function(image, playerName) {
-		this.name = playerName;
-		this.myplayerImage = image;
+		this.playerName = playerName;
+		this.playerImage = image;
 		//this.biscuitEaten = 0; //resets biscuit count to zero on reset
 		this.updateBiscuitCount();
 
+		// loops trhough the grid array to find starting point of character
+		// changes the starting point to grass
+		for(var rowIndex = 0; rowIndex < MAP_ROWS; rowIndex++) {
+			for(var columnIndex = 0; columnIndex < MAP_COLS; columnIndex++) {
 
-		for(var eachRow=0;eachRow<MAP_ROWS;eachRow++) {
-			for(var eachCol=0;eachCol<MAP_COLS;eachCol++) {
-				var arrayIndex = rowColToArrayIndex(eachCol, eachRow);
+				var arrayIndex = xyArrayIndex(columnIndex, rowIndex);
+
 				if(gridMap[arrayIndex] == TILE_PLAYERSTART) {
 					gridMap[arrayIndex] = TILE_GRASS;
-					this.x = eachCol * TILE_W + TILE_W/2;
-					this.y = eachRow * TILE_H + TILE_H/2;
+					this.x = columnIndex * TILE_W + TILE_W/2;
+					this.y = rowIndex * TILE_H + TILE_H/2;
 					return;
 				}
 			}
 		}
 	}
-
+	//update the count of the biscuits
 	this.updateBiscuitCount = function() {
-		document.getElementById("biscuitCount").innerHTML =  this.biscuitEaten; //the count of the biscuits
+		document.getElementById("biscuitCount").innerHTML =  this.biscuitEaten;
 	}
-
+	// move the player
 	this.move = function() {
 		var moveX = this.x;
 		var moveY = this.y;
@@ -65,13 +68,16 @@ function playerClass() {
 			moveX -= PLAYER_SPEED;
 		}
 
-		var moveIntoTileIndex = getTileIndexAtCoord(moveX, moveY);
+		var moveIntoTileIndex = playerTileIndex(moveX, moveY);
 		var moveIntoTile = TILE_HEDGE;
 
+		//if the tile has coordinates then the player will move into the tile
+		//stops the character from going outside of the grid
 		if(moveIntoTileIndex != undefined) {
 			moveIntoTile = gridMap[moveIntoTileIndex];
 		}
 
+		//what happens in each tile
 		switch(moveIntoTile) {
 				case TILE_GRASS:
 					this.x = moveX;
@@ -99,6 +105,8 @@ function playerClass() {
 
 				case TILE_EXIT_ONE:
 					loadLevel(levelTwo);
+					this.x = 125; //need to update this to a calculation maybe
+					this.y = 500;  //need to update this to a calculation maybe
 					break;
 
 				case TILE_EXIT_TWO:
@@ -107,11 +115,10 @@ function playerClass() {
 					this.y = 75;  //need to update this to a calculation maybe
 					break;
 			}
-
 	}
 
 	this.draw = function() {
-		drawImage(this.myplayerImage, this.x,this.y, 0);
+		drawImage(this.playerImage, this.x,this.y, 0);
 	}
 
 }
