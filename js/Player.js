@@ -23,7 +23,7 @@ function playerClass() {
 		this.controlKeyDown = downKey;
 		this.controlKeyLeft = leftKey;
 	}
-	//what happens on reset
+	//what happens on level reset
 	this.reset = function(image, playerName) {
 		this.playerName = playerName;
 		this.playerImage = image;
@@ -46,10 +46,37 @@ function playerClass() {
 			}
 		}
 	}
+	//what happens on game reset
+	this.gameReset = function(image, playerName) {
+		this.playerName = playerName;
+		this.playerImage = image;
+		this.biscuitEaten = 0; //resets biscuit count to zero on reset
+		this.updateBiscuitCount();
+
+
+		// loops trhough the grid array to find starting point of character
+		// changes the starting point to grass
+		for(var rowIndex = 0; rowIndex < MAP_ROWS; rowIndex++) {
+			for(var columnIndex = 0; columnIndex < MAP_COLS; columnIndex++) {
+
+				var arrayIndex = xyArrayIndex(columnIndex, rowIndex);
+
+				if(gridMap[arrayIndex] == TILE_PLAYERSTART) {
+					gridMap[arrayIndex] = TILE_GRASS;
+					this.x = columnIndex * TILE_W + TILE_W/2;
+					this.y = rowIndex * TILE_H + TILE_H/2;
+					return;
+				}
+			}
+		}
+	}
+
 	//update the count of the biscuits
 	this.updateBiscuitCount = function() {
 		document.getElementById("biscuitCount").innerHTML =  this.biscuitEaten;
 	}
+
+
 	// move the player
 	this.move = function() {
 		var moveX = this.x;
@@ -77,6 +104,16 @@ function playerClass() {
 			moveIntoTile = gridMap[moveIntoTileIndex];
 		}
 
+		if(this.biscuitEaten == 2) {
+			alert(this.playerName + " is a good boy! You win!");
+
+			loadStart(levelOne);
+			//clearInterval(interval);
+			//document.location.reload();
+
+		}
+
+
 		//what happens in each tile
 		switch(moveIntoTile) {
 				case TILE_GRASS:
@@ -97,6 +134,17 @@ function playerClass() {
 					this.biscuitEaten++;
 					this.updateBiscuitCount();
 					gridMap[moveIntoTileIndex] = TILE_GRASS;
+					break;
+
+				case TILE_BAD_BISCUIT:
+					this.biscuitEaten = 0;
+					this.updateBiscuitCount();
+					gridMap[moveIntoTileIndex] = TILE_POOP;
+					break;
+
+				case TILE_POOP:
+					this.x = moveX;
+					this.y = moveY;
 					break;
 
 				case TILE_HEDGE:
