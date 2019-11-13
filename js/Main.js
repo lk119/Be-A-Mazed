@@ -2,6 +2,8 @@ var canvas, canvasContext;
 
 var player1 = new playerClass();
 
+
+
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
@@ -10,6 +12,9 @@ window.onload = function() {
 
 
 	loadImages();
+
+	// document.getElementById('player').play();
+
 }
 
 function imageLoadingComplete() {
