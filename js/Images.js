@@ -37,7 +37,9 @@ function loadImages() {
 		{tileType: TILE_GATE, theFile: "images/redgate_small.png"},
 		{tileType: TILE_OPEN_GATE, theFile: "images/redgate_open.png"},
 		{tileType: TILE_EXIT_ONE, theFile: "images/redgate_small.png"},
-		{tileType: TILE_EXIT_TWO, theFile: "images/redgate_small.png"}
+		{tileType: TILE_EXIT_TWO, theFile: "images/redgate_small.png"},
+		{tileType: TILE_BAD_BISCUIT, theFile: "images/dog_biscuit.png"},
+		{tileType: TILE_POOP, theFile: "images/poop.png"}
 		];
 
 
