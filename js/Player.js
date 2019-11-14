@@ -76,6 +76,13 @@ function playerClass() {
 		if(moveIntoTileIndex != undefined) {
 			moveIntoTile = gridMap[moveIntoTileIndex];
 		}
+		
+		//declares the winner if biscount count equals 15
+		if(this.biscuitEaten == 15) {
+		alert(this.playerName + " is a good boy! You win!");
+		this.biscuitEaten = 0; //this stops the game being stuck in a loop declaring the winner
+		location.reload(); //reloads the page
+		}
 
 		//what happens in each tile
 		switch(moveIntoTile) {
