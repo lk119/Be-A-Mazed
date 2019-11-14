@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<script>
+function startTimer(seconds) {
+     intervalVar = setInterval(function () {
+          makeWhite(mazeWidth, 0, canvas.width - mazeWidth, canvas.height);
+              if (seconds === 0) {
+                   clearInterval(intervalVar);
+                   window.removeEvenListener("keydown", moveRect, true);
+                   makeWhite(0, 0, canvas.width, canvas.height);
+                   context.font = "50px Arial";
+                   context.textAlign = "center";
+                   context.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
+                   context.fillStyle = "red";
+                   context.textBaseline = "middle";
+                   return;
+                   }
+                   context.font = "30px Arial";
+                   if (seconds <= 10 && seconds > 5) {
+                   context.fillStyle = "orange"; 
+                   }
+                   else if (seconds <= 5) {
+                   context.fillStyle = "red";
+                   }
+                   else {
+                   contect.fillStyle = "green";
+                   }
+                   context.textAlign = "center";
+                   context.textBaseline = "middle";
+                   var minutes = Math.floor(seconds / 60);
+                   var secondsToShow = (seconds - minutes * 60).toString();
+                   if (secondsToShow.length ===1) {
+                   secondsToShow = "0" + secondsToShow; //number of seconds shown with 0 at tens place, for example '02'
+                   }
+                   context.fillText(minutes.toString() + ":" + secondsToShow, mazeWidth + 30, canvas.height /2);
+                    seconds--;
+                    }, 1000);
+                   }
