@@ -20,7 +20,7 @@
  
  <style>
          
-         .model {
+         .modal {
               display: none;
               position: fixed:
               z-index: 1;
@@ -34,7 +34,7 @@
               background-color: rgba(0,0,0,0.5);
             }
             
-            .model-content {
+            .modal-content {
                      position: relative;
                      background-color: #fefefe;
                      margin: auto;
@@ -63,7 +63,7 @@
                    cursor: pointer;
                   }
                   
-             .model-header  {
+             .modal-header  {
                      padding: 3px 15px;
                      background-color: #41d9f4;
                      color: white;
