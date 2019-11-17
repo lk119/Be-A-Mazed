@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Biscuits</title>
+  <meta charset="utf-8">
+
+  <style>
+  #startBtn {
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+  }
+</head>
+
+<body onload="initialize()">
+<button type="button" id="startBtn" onclick="initialize()">START</button>
+
+<script>
+var startBtn = document.getElementById('startBtn');
+
+
+function initialize() {
+  startBtn.style.display = 'none';
+
+}
