@@ -29,4 +29,14 @@ io.sockets.on('connection', function(socket){
 			});
 		})
 
+		//listen on new_message
+    socket.on('new_message', (data) => {
+        //broadcast the new message
+        io.sockets.emit('new_message', {
+					user: data.user,
+					message: data.message
+				});
+    })
+
 });
+
