@@ -1,24 +1,218 @@
-canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 800px;
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('//fonts.googleapis.com/css?family=Bungee+Shade');
+
+
+
+.wrapper {
+  width: 1120px;
+  margin: 0 auto;
 }
 
-#gameTitle {
+header {
+	width: 1120px;
+}
 
+
+#countDisplay {
+  width: 100px;
+  height: 60px;
+  background: #FFF;
+  border-radius: 10px 10px 10px 10px;
+  color: #777777;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  font-family: "Cookie", cursive;
-  color: #555;
-  text-decoration: none;
-  font-size: 140px;
-  letter-spacing: 8px;
-  line-height: 1;
-  text-shadow: #EDEDED 3px 2px 0;
-  position: relative;
+  font-size: 30px;
 }
+
+#countDisplay:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #79C7C5;
+  }
+
+#gameArea, #sidebar {
+  float: left;
+}
+
+#gameArea {
+  width: 820px;
+  height: 620px;
+  margin-right: 10px;
+}
+
+#sidebar {
+  width: 290px;
+  height: 600px;
+}
+
+#scoreboard {
+  position: relative;
+  width: 290px;
+  height: 310px;
+  color: #777777;
+}
+
+#scoreTop {
+  width: 290px;
+  height: 60px;
+  background: #FFF;
+  border-radius: 10px 10px 0 0;
+}
+
+ #scoreTitle {
+  position: absolute;
+  top: 22px;
+  color: #777777;
+  font-size: .8em;
+  letter-spacing: 2px;
+  font-weight: 500;
+  left: 90px;
+}
+
+#scores {
+  position: absolute;
+  background: #FFF;
+  width: 100%;
+  opacity: 0.85;
+  top: 60px;
+  height: 70%;
+  color: #777777;
+}
+
+#bottom {
+  position: absolute;
+  width: 100%;
+  height: 55px;
+  bottom: 0;
+  background: #FFF;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 5px;
+}
+
+
+
+#chatbox {
+  position: relative;
+  width: 290px;
+  height: 310px;
+}
+
+#chatTop {
+  width: 290px;
+  height: 60px;
+  background: #FFF;
+  border-radius: 10px 10px 0 0;
+}
+
+#chatTitle {
+  position: absolute;
+  top: 22px;
+  color: #777777;
+  font-size: .8em;
+  letter-spacing: 2px;
+  font-weight: 500;
+  left: 100px;
+}
+
+#messages {
+  position: absolute;
+  background: #FFF;
+  width: 100%;
+  opacity: 0.85;
+  top: 60px;
+  height: 70%;
+}
+
+#chat  {
+  position: absolute;
+  width: 100%;
+  height: 55px;
+  bottom: 0;
+  background: #FFF;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+h1 {
+  font-family: 'Bungee Shade';
+  font-size: 80px;
+  color: #D7EEED;
+}
+
+h1:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #D7EEED;
+  }
+
+
+body {
+  background: #79C7C5;
+  color: #FFF;
+  font-family: Helvetica;
+  text-align: center;
+  margin: 0;
+}
+
+#gameArea {
+  border-radius: 25px;
+  border: 10px solid rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+header {
+  padding: 20px 0;
+}
+
+input {
+  padding: 7px;
+  width: 74%;
+  left: 5%;
+  position: absolute;
+  border: 0;
+  top: 13px;
+  background: $white;
+  color: #79C7C5;
+
+}
+
+input::placeholder {
+  color: #A1E2D9;
+}
+
+input:focus {
+  color: #777777;
+  outline: 0;
+}
+
+button {
+  position: absolute;
+  border: 0;
+  font-size: 1em;
+  color: #A1E2D9;
+  top:  19px;
+  opacity: 0.8;
+  right: 17px;
+  cursor: pointer;
+  outline: 0;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #79C7C5;
+  }
 
 #background {
     z-index: -1;
@@ -27,11 +221,12 @@ canvas {
     bottom: 0;
     width: 100vw;
     height: 100vh;
-    color: #fff;
-    background: linear-gradient(-45deg, #F38181, #FCE38A, #EAFFD0, #95E1D3);
+    color: #79C7C5;
+    background: linear-gradient(-45deg, #79C7C5, #BBDED6, #79C7C5, #79C7C5);
     background-size: 400% 400%;
     animation: Gradient 15s ease infinite;
 }
+
 
 @keyframes Gradient {
     0% {
@@ -43,27 +238,4 @@ canvas {
     100% {
         background-position: 0% 50%
     }
-}
-
-#countDisplay {
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-#biscuitCount {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 50px;
-  color: #555;
-  margin-left: auto;
-  margin-right: auto;
-
-
-
-
 }
