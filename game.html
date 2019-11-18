@@ -4,30 +4,88 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
 		<link href="https://fonts.googleapis.com/css?family=Cookie|Roboto&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="client/css/stylesheet.css">
 
 	</head>
 
 	<body>
 
+		<!-- Load the CDN first -->
+		<script
+				src="http://code.jquery.com/jquery-3.4.1.js"
+				integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+				crossorigin="anonymous">
+		</script>
+
+		<!-- If CDN fails to load, load the local version -->
+		<script>window.jQuery || document.write('<script src="client/js/jquery-3.4.1.js"><\/script>');</script>
+		<!--<script src="js/script.js"></script> -->
+
 		<audio controls autoplay loop>
-  		<source src="audio/bensound-ukulele.mp3" type="audio/mp3">
+  		<source src="client/audio/bensound-ukulele.mp3" type="audio/mp3">
 		</audio>
 
+		<!-- <audio id="player" src="audio/bensound-ukulele.mp3"></audio> -->
+
+		<!-- <div>
+	    <button onclick="document.getElementById('player').play()">Play</button>
+	    <button onclick="document.getElementById('player').pause()">Pause</button>
+	    <button onclick="document.getElementById('player').muted=!document.getElementById('player').muted">Mute/ Unmute</button>
+		</div> -->
+
+
 			<div id="background"></div>
-			<h1 id="gameTitle">Biscuit Bonanza</h1>
-			<div> <!--count display -->
-				<table id ="countDisplay"><tr><td><img src="images\big_biscuit.png"></td><td id="biscuitCount"> </td></tr></table>
-			 </div> <!--end of count display -->
+			 <div class="wrapper"> <!--wrapper -->
+				<header>
+					<h1> Biscuit Bonanza </h1>
+					<p> Use your arrow keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
+					<div id ="counterBox"> <!--count display -->
+						<table id ="countDisplay"><tr><td><img src="client/images/big_biscuit.png"></td><td id="biscuitCount"> </td></tr></table>
+					 </div> <!--end of count display -->
+				</header>
 
-			<canvas id="gameCanvas" width="800" height="600"></canvas>
+				<section id="gameArea">
+				 		<canvas id="gameCanvas" width="800" height="600"></canvas>
+				</section>
+				<section id="sidebar">
+						<!--scoreboard -->
+					 	<div id ="scoreboard">
+						<div id="scoreTop">
+								<div id=scoreTitle>SCOREBOARD</div>
+						</div>
+						<div id="scores"></div>
+						<div id="bottom"></div>
+					</div>
+					<!--scoreboard -->
+					<!--chatbox -->
+					<div id ="chatbox">
+						<div id="chatTop">
+								<div id=chatTitle>CHATBOX</div>
+						</div>
+						<div id="messages"></div>
+						<div id="chat">
+							<input type="text" placeholder="Type here..."/>
+							<button id="send" type="submit">SEND</button>
+						</div>
+					</div>
+					<!--chatbox -->
+			</section>
+		 </div> <!--wrapper -->
 
-			<script src="js/Graphics.js"></script>
-			<script src="js/Images.js"></script>
-			<script src="js/Player.js"></script>
-			<script src="js/Map.js"></script>
-			<script src="js/Controls.js"></script>
-			<script src="js/Main.js"></script>
+			<script src="client/js/Graphics.js"></script>
+			<script src="client/js/Images.js"></script>
+			<script src="client/js/Player.js"></script>
+			<script src="client/js/Map.js"></script>
+			<script src="client/js/Controls.js"></script>
+			<script src="client/js/Main.js"></script>
+			<script src="client/js/Scoreboard.js"></script>
 
-	</body>
+			<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+			<script>
+				var socket = io();
+
+			</script>
+
+
+</body>
 </html>
