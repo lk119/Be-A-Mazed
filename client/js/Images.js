@@ -30,16 +30,16 @@ function loadImagesForMapTiles(mapItem, fileName) {
 //add sources to array list
 function loadImages() {
 	var imageList = [
-		{varName: playerImage, theFile: "images/rr_002.png"},
-		{tileType: TILE_GRASS, theFile: "images/grass.jpg"},
-		{tileType: TILE_HEDGE, theFile: "images/hedge.png"},
-		{tileType: TILE_BISCUIT, theFile: "images/dog_biscuit.png"},
-		{tileType: TILE_GATE, theFile: "images/redgate_small.png"},
-		{tileType: TILE_OPEN_GATE, theFile: "images/redgate_open.png"},
-		{tileType: TILE_EXIT_ONE, theFile: "images/redgate_small.png"},
-		{tileType: TILE_EXIT_TWO, theFile: "images/redgate_small.png"},
-		{tileType: TILE_BAD_BISCUIT, theFile: "images/dog_biscuit.png"},
-		{tileType: TILE_POOP, theFile: "images/poop.png"}
+		{varName: playerImage, theFile: "client/images/rr_002.png"},
+		{tileType: TILE_GRASS, theFile: "client/images/grass.jpg"},
+		{tileType: TILE_HEDGE, theFile: "client/images/hedge.png"},
+		{tileType: TILE_BISCUIT, theFile: "client/images/dog_biscuit.png"},
+		{tileType: TILE_GATE, theFile: "client/images/redgate_small.png"},
+		{tileType: TILE_OPEN_GATE, theFile: "client/images/redgate_open.png"},
+		{tileType: TILE_EXIT_ONE, theFile: "client/images/redgate_small.png"},
+		{tileType: TILE_EXIT_TWO, theFile: "client/images/redgate_small.png"},
+		{tileType: TILE_BAD_BISCUIT, theFile: "client/images/dog_biscuit.png"},
+		{tileType: TILE_POOP, theFile: "client/images/poop.png"}
 		];
 
 
