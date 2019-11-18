@@ -32,8 +32,6 @@ function keyevent(keyEvent, status) {
 //event key event to true if key is being pressed
 function keyPressed(evt) {
 	keyevent(evt, true);
-	//prevent key press from moving browser
-	evt.preventDefault();
 }
 
 function keyReleased(evt) {
