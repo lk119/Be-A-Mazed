@@ -21,9 +21,7 @@
 		<script>window.jQuery || document.write('<script src="client/js/jquery-3.4.1.js"><\/script>');</script>
 		<!--<script src="js/script.js"></script> -->
 
-		<audio controls autoplay loop>
-  		<source src="client/audio/bensound-ukulele.mp3" type="audio/mp3">
-		</audio>
+
 
 		<!-- <audio id="player" src="audio/bensound-ukulele.mp3"></audio> -->
 
@@ -35,7 +33,15 @@
 
 
 			<div id="background"></div>
-			 <div class="wrapper"> <!--wrapper -->
+			<!--audio player -->
+			<div id="audioPlayer">
+				<audio controls autoplay loop>
+					<source src="client/audio/bensound-ukulele.mp3" type="audio/mp3">
+				</audio>
+		 </div>
+		<!--audio player -->
+			<!--wrapper -->
+			 <div class="wrapper">
 				<header>
 					<h1> Biscuit Bonanza </h1>
 					<p> Use your arrow keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
@@ -62,15 +68,18 @@
 						<div id="chatTop">
 								<div id=chatTitle>CHATBOX</div>
 						</div>
-						<div id="messages"></div>
+						<div id="messageContainer">
+							<div id="messages"></div>
+						</div>
 						<div id="chat">
-							<input type="text" placeholder="Type here..."/>
+							<input id="chatText" type="text" placeholder="Type here..."/>
 							<button id="send" type="submit">SEND</button>
 						</div>
 					</div>
 					<!--chatbox -->
 			</section>
-		 </div> <!--wrapper -->
+		 </div>
+		 <!--wrapper -->
 
 			<script src="client/js/Graphics.js"></script>
 			<script src="client/js/Images.js"></script>
