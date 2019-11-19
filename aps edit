@@ -12,28 +12,6 @@ console.log("Server started.");
 
 var SOCKET_LIST = {};
 
-
-
-	
-
-Bullet.list = {};
-
-Bullet.update = function(){
-	var pack = [];
-	for(var i in Bullet.list){
-		var bullet = Bullet.list[i];
-		bullet.update();
-		if(bullet.toRemove)
-			delete Bullet.list[i];
-		else
-			pack.push({
-				x:bullet.x,
-				y:bullet.y,
-			});		
-	}
-	return pack;
-}
-
 var DEBUG = true;
 
 var USERS = {
