@@ -36,7 +36,7 @@ io.sockets.on('connection', function(socket){
 					user: data.user,
 					message: data.message
 				});
-    })
+    
 
 });
 
