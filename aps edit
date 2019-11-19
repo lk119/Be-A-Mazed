@@ -13,14 +13,7 @@ console.log("Server started.");
 var SOCKET_LIST = {};
 
 
-}
 
-	self.shootBullet = function(angle){
-		var b = Bullet(self.id,angle);
-		b.x = self.x;
-		b.y = self.y;
-	}
-	
 	
 	self.updateSpd = function(){
 		if(self.pressingRight)
