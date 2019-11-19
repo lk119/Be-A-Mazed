@@ -83,10 +83,6 @@ io.sockets.on('connection', function(socket){
 		var res = eval(data);
 		socket.emit('evalAnswer',res);		
 	});
-	
-	
-	
-});
 
 
 }
