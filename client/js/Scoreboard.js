@@ -13,7 +13,7 @@ $(function() {
   })
 
   //Emit message
-  	send.click(function(){
+  	send.click(function() {
   		socket.emit('new_message', {
         user: socket.id,
         message: chatText.val()
