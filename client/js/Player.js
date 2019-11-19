@@ -82,12 +82,6 @@ function playerClass() {
 			moveIntoTile = gridMap[moveIntoTileIndex];
 		}
 
-		if(this.biscuitEaten == 15) {
-			alert(this.playerName + " is a good boy! You win!");
-			this.biscuitEaten = 0; //this stops the game being stuck in a loop and restarts the game
-			location.reload();
-		}
-
 		//what happens in each tile
 		switch(moveIntoTile) {
 				case TILE_GRASS:
