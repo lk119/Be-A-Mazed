@@ -4,6 +4,7 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
 		<link href="https://fonts.googleapis.com/css?family=Cookie|Roboto&display=swap" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="client/css/stylesheet.css">
 
 	</head>
@@ -35,7 +36,7 @@
 			<div id="background"></div>
 			<!--audio player -->
 			<div id="audioPlayer">
-				<audio controls autoplay loop>
+				<audio autoplay loop>
 					<source src="client/audio/bensound-ukulele.mp3" type="audio/mp3">
 				</audio>
 		 </div>
@@ -44,14 +45,39 @@
 			 <div class="wrapper">
 				<header>
 					<h1> Biscuit Bonanza </h1>
-					<p> Use your arrow keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
+					<p> Use the WASD keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
+
+					<!--start game button -->
+					<div id="startGame">
+						<button id="start" onclick="startGame()">Play Game</button>
+					</div>
+					<!--start game button -->
+
 					<div id ="counterBox"> <!--count display -->
 						<table id ="countDisplay"><tr><td><img src="client/images/big_biscuit.png"></td><td id="biscuitCount"> </td></tr></table>
-					 </div> <!--end of count display -->
+					<div>
+						<span id="timer"></span></div>
+					</div> <!--end of count display -->
+					<!--game over -->
+					<div id="gameOver">
+						<div id="GO">
+							<h2> Game Over! </h2>
+						</div>
+						<div id="messageGameOver">
+							<p> What a good doggo! </p>
+							<p> You got a score of: </p>
+							<div id=finalScore></div>
+								<button id="playAgain" onclick="resetGame()">Play Again</button>
+						</div>
+					</div>
+					<!--game over -->
 				</header>
 
 				<section id="gameArea">
+
 				 		<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+
 				</section>
 				<section id="sidebar">
 						<!--scoreboard -->
@@ -59,7 +85,9 @@
 						<div id="scoreTop">
 								<div id=scoreTitle>SCOREBOARD</div>
 						</div>
-						<div id="scores"></div>
+						<div id="scoreContainer">
+							<div id="scores"></div>
+						</div>
 						<div id="bottom"></div>
 					</div>
 					<!--scoreboard -->
@@ -88,6 +116,7 @@
 			<script src="client/js/Controls.js"></script>
 			<script src="client/js/Main.js"></script>
 			<script src="client/js/Scoreboard.js"></script>
+			<script src="client/js/Timer.js"></script>
 
 			<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 			<script>
