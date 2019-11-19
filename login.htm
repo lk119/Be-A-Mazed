@@ -1,0 +1,97 @@
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Login</h1>
+      <form name="myForm" method="post" action="">
+        <p>
+          <input type="text" name="login" value="" placeholder="Email Address">
+        </p>
+        <p>
+          <input type="password" name="password" value="" placeholder="Password">
+        </p>
+        <p class="submit">
+          <button type="button" name="commit" value="Login" onclick="doLogin()">Login</button>
+        </p>
+
+        <p class="submit">
+          <button type="button" name="back" value="back" onclick="document.location.href='home-page.html';">Back To Home Page</button>
+        </p>
+      </form>
+    </div>
+
+
+  </div>
+  <script>
+    function validate() {
+      if (validateEmail(document.myForm.login.value) !== true) {
+        alert("Please provide your valide email address!");
+        document.myForm.login.focus();
+        return false;
+      }
+
+      if (document.myForm.password.value.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        document.myForm.password.focus();
+        return false;
+      }
+      if (document.myForm.password.value == form.login.value) {
+        alert("Error: Password must be different from Username!");
+        document.myForm.password.focus();
+        return false;
+      }
+      re = /[0-9]/;
+      if (!re.test(form.password.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        document.myForm.password.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if (!re.test(form.password.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        document.myForm.password.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if (!re.test(form.password.value)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        document.myForm.password.focus();
+        return false;
+      } else {
+        alert("Error: Please check that you've entered and confirmed your password!");
+        document.myForm.password.focus();
+        return false;
+      }
+      return true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+
+    var attempt = 3; // Variable to count number of attempts.
+    // Below function Executes on click of login button.
+    function doLogin() {
+      if (validate()) {
+        var username = document.getElementById("login").value;
+        var password = document.getElementById("password").value;
+        if (username == "admin" && password == "Password1") {
+          alert("Login successfully");
+          window.location = "session.php"; // Redirecting to other page.
+          return false;
+        } else {
+          attempt--; // Decrementing by one.
+          alert("You have left " + attempt + " attempt;");
+          // Disabling fields after 3 attempts.
+          if (attempt === 0) {
+            document.getElementById("login").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.getElementById("submit").disabled = true;
+            return false;
+          }
+        }
+      }
+    }
+
+  </script>
