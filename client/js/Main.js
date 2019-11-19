@@ -1,6 +1,6 @@
 var canvas, canvasContext;
 
-var player1 = new playerClass();
+var player = new playerClass();
 
 
 
@@ -10,12 +10,42 @@ window.onload = function() {
 
 	canvasArea(0,0, canvas.width,canvas.height, 'white');
 
-
 	loadImages();
 
-	// document.getElementById('player').play();
-
+	document.getElementById("gameArea").style.display = "none";
+	document.getElementById("counterBox").style.display = "none";
+	document.getElementById("sidebar").style.display = "none";
+	document.getElementById("gameOver").style.display = "none";
 }
+
+function startGame() {
+	document.getElementById("start").style.display = "none";
+	document.getElementById("gameArea").style.display = "block";
+	document.getElementById("counterBox").style.display = "block";
+	document.getElementById("sidebar").style.display = "block";
+	setTimer();
+	startTimer();
+}
+
+function endGame() {
+	document.getElementById("gameOver").style.display = "block";
+	document.getElementById("counterBox").style.display = "none";
+	document.getElementById("gameArea").style.display = "none";
+	document.getElementById("finalScore").innerHTML = player.biscuitEaten;
+		// socket.emit('score', {
+		// 		user: player.playerName,
+		// 		score: player.biscuitEaten
+		// 	});
+}
+
+function resetGame() {
+	location.reload();
+	// document.getElementById("gameOver").style.display = "none";
+	// player.biscuitEaten = 0;
+	// player.reset(playerImage, "Player One");
+	// startGame();
+}
+
 
 function imageLoadingComplete() {
 	var framesPerSecond = 30;
@@ -28,7 +58,7 @@ function imageLoadingComplete() {
 
 function loadLevel(level) {
 	gridMap = level; //.slice() - use to reset when click new game
-	player1.reset(playerImage, "Player One");
+	player.reset(playerImage, "Player One");
 }
 
 function updateAll() {
@@ -37,11 +67,11 @@ function updateAll() {
 }
 
 function moveAll() {
-	player1.move();
+	player.move();
 
 }
 
 function drawAll() {
 	drawMap();
-	player1.draw();
+	player.draw();
 }
