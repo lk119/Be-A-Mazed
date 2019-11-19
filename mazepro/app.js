@@ -88,15 +88,6 @@ io.sockets.on('connection', function(socket){
 	
 });
 
-setInterval(function(){
-	var pack = {
-		player:Player.update(),
-		bullet:Bullet.update(),
-	}
-	
-	for(var i in SOCKET_LIST){
-		var socket = SOCKET_LIST[i];
-		socket.emit('newPositions',pack);
-	}
-},1000/25);
+
+}
 
