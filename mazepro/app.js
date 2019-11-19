@@ -16,9 +16,9 @@ var DEBUG = true;
 
 var USERS = {
 	//username:password
-	"bob":"asd",
-	"bob2":"bob",
-	"bob3":"ttt",	
+	"Tim":"Tm1",
+	"Ron":"Ro2",
+	"Alex":"Lex1",	
 }
 
 var isValidPassword = function(data,cb){
