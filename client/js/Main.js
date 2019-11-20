@@ -2,7 +2,17 @@ var canvas, canvasContext;
 
 var player = new playerClass();
 
-
+function musicToggle() {
+	var toggle = document.getElementById("toggle");
+	var music = document.getElementById("music");
+	if (toggle.checked == true) {
+		music.play();
+		music.loop();
+	}
+	else {
+		music.pause();
+	}
+}
 
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
