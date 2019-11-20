@@ -50,22 +50,30 @@
 						<div id="userDetails">
 							<input id="username" type="text" placeholder="Enter your username..."/>
 							<input id="password" type="password" placeholder="Enter your password..."/>
-							<div id="showPW">
+							<div id="showPW1">
 								<input type="checkbox" onclick="showPassword()">Show Password
 							</div>
 						</div>
 						<button id="loginButton" onclick="login()">Submit</button>
-
-
-
+						<button id="createAccount" onclick="goToCreateAccount()">Create an account</button>
 					</div>
 					<!--log in and sign up -->
-
-
-
-
-
-
+					<!--create account -->
+					<div id="createAccountBox">
+						<div id="createAccountTitle">
+							<h2> Create<br>an account! </h2>
+						</div>
+						<div id="userCreateDetails">
+							<input id="createUsername" type="text" placeholder="Create a username..."/>
+							<input id="createPassword" type="password" placeholder="Create a password..."/>
+							<div id="showPW2">
+								<input type="checkbox" onclick="showPassword()">Show Password
+							</div>
+						</div>
+						<button id="createAccountSubmit" onclick="createAccount()">Create account</button>
+						<button id="alreadyMember" onclick="hideCreateAccountLogin()">Login instead!</button>
+					</div>
+					<!--create account -->
 
 					<!--start game button -->
 					<div id="startGame">
