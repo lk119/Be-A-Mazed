@@ -11,11 +11,18 @@ function musicToggle() {
 
 function showPassword() {
 	var password = document.getElementById("password");
+	var createPassword = document.getElementById("createPassword");
 	if (password.type === "password") {
 		 password.type = "text";
 	}
 	else {
 		password.type = "password";
+	}
+	if (createPassword.type === "password") {
+		 createPassword.type = "text";
+	}
+	else {
+		createPassword.type = "password";
 	}
 }
 
