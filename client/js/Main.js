@@ -12,7 +12,7 @@ window.onload = function() {
 
 	loadImages();
 
-	document.getElementById("gameArea").style.display = "none";
+	document.getElementById("gameCanvas").style.display = "none";
 	document.getElementById("counterBox").style.display = "none";
 	document.getElementById("sidebar").style.display = "none";
 	document.getElementById("gameOver").style.display = "none";
@@ -20,7 +20,7 @@ window.onload = function() {
 
 function startGame() {
 	document.getElementById("start").style.display = "none";
-	document.getElementById("gameArea").style.display = "block";
+	document.getElementById("gameCanvas").style.display = "block";
 	document.getElementById("counterBox").style.display = "block";
 	document.getElementById("sidebar").style.display = "block";
 	setTimer();
@@ -30,7 +30,7 @@ function startGame() {
 function endGame() {
 	document.getElementById("gameOver").style.display = "block";
 	document.getElementById("counterBox").style.display = "none";
-	document.getElementById("gameArea").style.display = "none";
+	document.getElementById("gameCanvas").style.display = "none";
 	document.getElementById("finalScore").innerHTML = player.biscuitEaten;
 		// socket.emit('score', {
 		// 		user: player.playerName,
