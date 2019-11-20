@@ -16,7 +16,7 @@ header {
 
   position: relative;
   width: 400px;
-  height: 400px;
+  height: 500px;
   background: #FFF;
   border-radius: 10px 10px 10px 10px;
   color: #777777;
@@ -81,7 +81,7 @@ header {
     font-style: italic;
   }
 
-  #showPW {
+  #showPW1 {
       position: absolute;
       left: 50px;
       top: 225px;
@@ -108,6 +108,152 @@ header {
   }
 
   #loginButton:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #FFF;
+  }
+
+  #createAccount {
+    position:absolute;
+    width: 300px;
+    height: 70px;
+    top: 400px;
+    left: 50px;
+    background: #C257AB;
+    border-radius: 10px 10px 10px 10px;
+    color: #BFBFBF;
+    opacity: 0.8;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Pacifico', Arial, sans-serif;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+  }
+
+  #createAccount:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #FFF;
+  }
+
+#createAccountBox {
+
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background: #FFF;
+  border-radius: 10px 10px 10px 10px;
+  color: #777777;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  }
+
+  #createAccountTitle {
+    position: absolute;
+    text-align: center;
+    left: 15px;
+    font-size: 30px;
+    font-family: 'Bungee Shade';
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+    color: #777777;
+    }
+
+  #userCreateDetails {
+    position: relative;
+    font-family: Helvetica;
+    margin-left: auto;
+    margin-right: auto;
+
+    }
+
+  #createUsername {
+    position: absolute;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 50px;
+    top: 175px;
+    width: 300px;
+    height: 40px;
+    color: #777777;
+    background: #A1E2D9;
+    opacity: 80%;
+  }
+
+  #createUsername::placeholder {
+    font-style: italic;
+  }
+
+  #createPassword {
+    position: absolute;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 50px;
+    top: 225px;
+    width: 300px;
+    height: 40px;
+    color: #777777;
+    background: #A1E2D9;
+    opacity: 80%;
+  }
+
+  #createPassword::placeholder {
+    font-style: italic;
+  }
+
+  #showPW2 {
+      position: absolute;
+      left: 50px;
+      top: 275px;
+      font-family: Helvetica;
+      font-size: 14px;
+  }
+
+  #createAccountSubmit {
+    position:absolute;
+    width: 200px;
+    height: 70px;
+    top: 325px;
+    left: 100px;
+    background: #C257AB;
+    border-radius: 10px 10px 10px 10px;
+    color: #BFBFBF;
+    opacity: 0.8;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Pacifico', Arial, sans-serif;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+  }
+
+  #createAccountSubmit:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #FFF;
+  }
+
+  #alreadyMember {
+    position:absolute;
+    width: 150px;
+    height: 40px;
+    top: 425px;
+    left: 125px;
+    background: #79C7C5;
+    border-radius: 10px 10px 10px 10px;
+    color: #777777;
+    opacity: 0.8;
+    text-align: center;
+    font-size: .8em;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  #alreadyMember:hover {
     transform: scale(1.1);
     transition: all .3s ease-in-out;
     color: #FFF;
