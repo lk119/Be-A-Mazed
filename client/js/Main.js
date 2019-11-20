@@ -1,45 +1,13 @@
 var canvas, canvasContext;
-
 var player = new playerClass();
-
-function musicToggle() {
-	var toggle = document.getElementById("toggle");
-	var music = document.getElementById("music");
-	if (toggle.checked == true) {
-		music.play();
-		music.loop();
-	}
-	else {
-		music.pause();
-	}
-}
-
-function showPassword() {
-	var password = document.getElementById("password");
-	if (password.type === "password") {
-		 password.type = "text";
-	}
-	else {
-		password.type = "password";
-	}
-}
-
-
 
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
-
 	canvasArea(0,0, canvas.width,canvas.height, 'white');
 
 	loadImages();
-
-	document.getElementById("gameCanvas").style.display = "none";
-	document.getElementById("counterBox").style.display = "none";
-	document.getElementById("sidebar").style.display = "none";
-	document.getElementById("gameOver").style.display = "none";
-	document.getElementById("start").style.display = "none";
-	document.getElementById("instructions").style.display = "none";
+	hideAllGameElements();
 }
 
 function login() {
@@ -49,18 +17,13 @@ function login() {
 }
 
 function startGame() {
-	document.getElementById("start").style.display = "none";
-	document.getElementById("gameCanvas").style.display = "block";
-	document.getElementById("counterBox").style.display = "block";
-	document.getElementById("sidebar").style.display = "block";
+	hideButtonShowGame()
 	setTimer();
 	startTimer();
 }
 
 function endGame() {
-	document.getElementById("gameOver").style.display = "block";
-	document.getElementById("counterBox").style.display = "none";
-	document.getElementById("gameCanvas").style.display = "none";
+	hideCanvasShowGameOver()
 	document.getElementById("finalScore").innerHTML = player.biscuitEaten;
 		// socket.emit('score', {
 		// 		user: player.playerName,
