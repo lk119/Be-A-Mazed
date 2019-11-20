@@ -12,6 +12,107 @@ header {
 	width: 1120px;
 }
 
+#loginBox {
+
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 10px 10px 10px 10px;
+  color: #777777;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  }
+
+  #loginTitle {
+  position: absolute;
+  text-align: center;
+  Left: 110px;
+  font-size: 30px;
+  font-family: 'Bungee Shade';
+  line-height: 1;
+  text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+  color: #777777;
+  }
+
+  #userDetails {
+  position: relative;
+  font-family: Helvetica;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+
+  #username {
+    position: absolute;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 50px;
+    top: 125px;
+    width: 300px;
+    height: 40px;
+    color: #777777;
+    background: #A1E2D9;
+    opacity: 80%;
+  }
+
+  #username::placeholder {
+    font-style: italic;
+  }
+
+  #password {
+    position: absolute;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    left: 50px;
+    top: 175px;
+    width: 300px;
+    height: 40px;
+    color: #777777;
+    background: #A1E2D9;
+    opacity: 80%;
+  }
+
+  #password::placeholder {
+    font-style: italic;
+  }
+
+  #showPW {
+      position: absolute;
+      left: 50px;
+      top: 225px;
+      font-family: Helvetica;
+      font-size: 14px;
+  }
+
+
+  #loginButton {
+    position:absolute;
+    width: 200px;
+    height: 70px;
+    top: 300px;
+    left: 100px;
+    background: #79C7C5;
+    border-radius: 10px 10px 10px 10px;
+    color: #777777;
+    opacity: 0.8;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Pacifico', Arial, sans-serif;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+  }
+
+  #loginButton:hover {
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    color: #FFF;
+  }
+
 #counterBox {
   position: relative;
   width: 400px;
@@ -203,7 +304,7 @@ header {
   line-height: 1;
   text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
   left: 40px;
-  color: #79C7C5
+  color: #79C7C5;
 }
 
 #messageGameOver {
@@ -290,7 +391,7 @@ header {
   padding: 20px 0;
 }
 
-input {
+#chatText {
   padding: 7px;
   width: 74%;
   left: 5%;
@@ -302,11 +403,11 @@ input {
 
 }
 
-input::placeholder {
+#chatText::placeholder {
   color: #A1E2D9;
 }
 
-input:focus {
+#chatText:focus {
   color: #777777;
   outline: 0;
 }
