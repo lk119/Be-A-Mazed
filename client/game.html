@@ -23,6 +23,7 @@
 		<!--<script src="js/script.js"></script> -->
 
 			<div id="background"></div>
+
 			<!--audio player -->
 			<div id="audioPlayer">
 				<audio id="music">
@@ -33,11 +34,38 @@
 				<label for="toggle" class="switch"></label>
 		 </div>
 		<!--audio player -->
+
 			<!--wrapper -->
 			 <div class="wrapper">
 				<header>
 					<h1> Biscuit Bonanza </h1>
-					<p> Use the WASD keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
+					<p id="instructions"> Use the WASD keys to direct your pupper around the park to collect the yummy biscuits! Oh...but watch out for the yucky ones!!</p>
+
+
+					<!--log in and sign up -->
+					<div id="loginBox">
+						<div id="loginTitle">
+							<h2> Login </h2>
+						</div>
+						<div id="userDetails">
+							<input id="username" type="text" placeholder="Enter your username..."/>
+							<input id="password" type="password" placeholder="Enter your password..."/>
+							<div id="showPW">
+								<input type="checkbox" onclick="showPassword()">Show Password
+							</div>
+						</div>
+						<button id="loginButton" onclick="login()">Submit</button>
+
+
+
+					</div>
+					<!--log in and sign up -->
+
+
+
+
+
+
 
 					<!--start game button -->
 					<div id="startGame">
@@ -101,6 +129,7 @@
 		 </div>
 		 <!--wrapper -->
 
+		 <!--load scripts -->
 			<script src="client/js/Graphics.js"></script>
 			<script src="client/js/Images.js"></script>
 			<script src="client/js/Player.js"></script>
@@ -109,13 +138,9 @@
 			<script src="client/js/Main.js"></script>
 			<script src="client/js/Scoreboard.js"></script>
 			<script src="client/js/Timer.js"></script>
-
 			<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-			<script>
-				var socket = io();
-
-			</script>
-
+			<script> var socket = io(); </script>
+			<!--load scripts -->
 
 </body>
 </html>
