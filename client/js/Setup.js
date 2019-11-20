@@ -3,7 +3,6 @@ function musicToggle() {
 	var music = document.getElementById("music");
 	if (toggle.checked == true) {
 		music.play();
-		music.loop();
 	}
 	else {
 		music.pause();
