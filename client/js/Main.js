@@ -7,13 +7,19 @@ window.onload = function() {
 	canvasArea(0,0, canvas.width,canvas.height, 'white');
 
 	loadImages();
-	hideAllGameElements();
+	hideAllElementsExceptLogin();
 }
 
 function login() {
-		document.getElementById("instructions").style.display = "block";
-		document.getElementById("start").style.display = "block";
-		document.getElementById("loginBox").style.display = "none";
+		hideBoxesShowPlay()
+}
+
+function goToCreateAccount() {
+		hideLoginCreateAccount()
+}
+
+function createAccount() {
+		hideBoxesShowPlay()
 }
 
 function startGame() {
