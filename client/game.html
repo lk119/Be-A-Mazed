@@ -22,23 +22,15 @@
 		<script>window.jQuery || document.write('<script src="client/js/jquery-3.4.1.js"><\/script>');</script>
 		<!--<script src="js/script.js"></script> -->
 
-
-
-		<!-- <audio id="player" src="audio/bensound-ukulele.mp3"></audio> -->
-
-		<!-- <div>
-	    <button onclick="document.getElementById('player').play()">Play</button>
-	    <button onclick="document.getElementById('player').pause()">Pause</button>
-	    <button onclick="document.getElementById('player').muted=!document.getElementById('player').muted">Mute/ Unmute</button>
-		</div> -->
-
-
 			<div id="background"></div>
 			<!--audio player -->
 			<div id="audioPlayer">
-				<audio autoplay loop>
+				<audio id="music">
 					<source src="client/audio/bensound-ukulele.mp3" type="audio/mp3">
 				</audio>
+				<p id="musicLableAlt">Music On/Off</p>
+				<input type="checkbox" id="toggle" class="checkbox" onclick="musicToggle()"/>
+				<label for="toggle" class="switch"></label>
 		 </div>
 		<!--audio player -->
 			<!--wrapper -->
