@@ -14,6 +14,18 @@ function musicToggle() {
 	}
 }
 
+function showPassword() {
+	var password = document.getElementById("password");
+	if (password.type === "password") {
+		 password.type = "text";
+	}
+	else {
+		password.type = "password";
+	}
+}
+
+
+
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
@@ -26,6 +38,14 @@ window.onload = function() {
 	document.getElementById("counterBox").style.display = "none";
 	document.getElementById("sidebar").style.display = "none";
 	document.getElementById("gameOver").style.display = "none";
+	document.getElementById("start").style.display = "none";
+	document.getElementById("instructions").style.display = "none";
+}
+
+function login() {
+		document.getElementById("instructions").style.display = "block";
+		document.getElementById("start").style.display = "block";
+		document.getElementById("loginBox").style.display = "none";
 }
 
 function startGame() {
