@@ -192,8 +192,7 @@ header {
   border-radius: 10px 10px 10px 10px;
   color: #777777;
   opacity: 0.8;
-  margin-left: auto;
-  margin-right: auto;
+  Left: 300px;
   text-align: center;
 }
 
@@ -214,6 +213,12 @@ header {
   left: 100px;
 }
 
+#finalScore {
+  color: #777777;
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
 #playAgain {
   width: 200px;
   height: 70px;
@@ -228,6 +233,7 @@ header {
   font-family: 'Pacifico', Arial, sans-serif;
   line-height: 1;
   text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+
   }
 
   #playAgain:hover {
@@ -265,10 +271,13 @@ body {
 }
 
 #gameArea {
-  border-radius: 25px;
-  border: 10px solid rgba(255,255,255,0.8);
   margin-bottom: 10px;
   border-radius: 3px;
+}
+
+#gameCanvas {
+  border-radius: 25px;
+  border: 10px solid rgba(255,255,255,0.8);
 }
 
 header {
