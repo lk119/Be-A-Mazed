@@ -82,6 +82,25 @@ socket.on('init',function(data){
 		
 	});
 
+socket.on('update',function(data){
+		//{ player : [{id:123,x:0,y:0},{id:1,x:0,y:0}], bullet: []}
+		for(var i = 0 ; i < data.player.length; i++){
+			var pack = data.player[i];
+			var p = Player.list[pack.id];
+			if(p){
+				if(pack.x !== undefined)
+					p.x = pack.x;
+				if(pack.y !== undefined)
+					p.y = pack.y;
+			}
+		}
+       });
+socket.on('remove',function(data){
+		//{player:[12323],bullet:[12323,123123]}
+		for(var i = 0 ; i < data.player.length; i++){
+			delete Player.list[data.player[i]];
+		}
+	});
 
 	
 	
