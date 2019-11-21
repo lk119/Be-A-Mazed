@@ -15,6 +15,24 @@ console.log("Server started.");
 
 var SOCKET_LIST = {};
 
+var Entity = function(){
+	var self = {
+		x:250,
+		y:250,
+		spdX:0,
+		spdY:0,
+		id:"",
+	}
+	self.update = function(){
+		self.updatePosition();
+	}
+	self.updatePosition = function(){
+		self.x += self.spdX;
+		self.y += self.spdY;
+	}
+	return self;
+}
+
 
 Player.list[id] = self;
 	
@@ -27,6 +45,7 @@ Player.list[id] = self;
 	return self;
 }
 Player.list = {};
+
 Player.onConnect = function(socket){
 	var player = Player(socket.id);
 	socket.on('keyPress',function(data){
@@ -38,12 +57,9 @@ Player.onConnect = function(socket){
 			player.pressingUp = data.state;
 		else if(data.inputId === 'down')
 			player.pressingDown = data.state;
-		else if(data.inputId === 'attack')
-			player.pressingAttack = data.state;
-		else if(data.inputId === 'mouseAngle')
-			player.mouseAngle = data.state;
 	});
 }
+
 Player.onDisconnect = function(socket){
 	delete Player.list[socket.id];
 	removePack.player.push(socket.id);
