@@ -60,7 +60,28 @@ var chatText = document.getElementById('chat-text');
 			socket.emit('sendMsgToServer',chatInput.value);
 		chatInput.value = '';		
 	}
+
+var ctx = document.getElementById("ctx").getContext("2d");
+	ctx.font = '30px Arial';
 	
+	var Player = function(initPack){
+		var self = {};
+		self.id = initPack.id;
+		self.number = initPack.number;
+		self.x = initPack.x;
+		self.y = initPack.y;
+		Player.list[self.id] = self;
+		return self;
+	}
+	Player.list = {};
+
+socket.on('init',function(data){	
+		for(var i = 0 ; i < data.player.length; i++){
+			new Player(data.player[i]);
+		}
+		
+	});
+
 
 	
 	
