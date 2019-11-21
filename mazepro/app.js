@@ -146,7 +146,16 @@ io.sockets.on('connection', function(socket){
 		socket.emit('evalAnswer',res);		
 	});
 	
-	
+	var Player = function(initPack){
+		var self = {};
+		self.id = initPack.id;
+		self.number = initPack.number;
+		self.x = initPack.x;
+		self.y = initPack.y;
+		Player.list[self.id] = self;
+		return self;
+	}
+	Player.list = {};
 	
 });
 
