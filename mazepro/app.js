@@ -15,6 +15,54 @@ console.log("Server started.");
 
 var SOCKET_LIST = {};
 
+
+Player.list[id] = self;
+	
+	initPack.player.push({
+		id:self.id,
+		x:self.x,
+		y:self.y,	
+		number:self.number,	
+	});
+	return self;
+}
+Player.list = {};
+Player.onConnect = function(socket){
+	var player = Player(socket.id);
+	socket.on('keyPress',function(data){
+		if(data.inputId === 'left')
+			player.pressingLeft = data.state;
+		else if(data.inputId === 'right')
+			player.pressingRight = data.state;
+		else if(data.inputId === 'up')
+			player.pressingUp = data.state;
+		else if(data.inputId === 'down')
+			player.pressingDown = data.state;
+		else if(data.inputId === 'attack')
+			player.pressingAttack = data.state;
+		else if(data.inputId === 'mouseAngle')
+			player.mouseAngle = data.state;
+	});
+}
+Player.onDisconnect = function(socket){
+	delete Player.list[socket.id];
+	removePack.player.push(socket.id);
+}
+Player.update = function(){
+	var pack = [];
+	for(var i in Player.list){
+		var player = Player.list[i];
+		player.update();
+		pack.push({
+			id:player.id,
+			x:player.x,
+			y:player.y,
+		});		
+	}
+	return pack;
+}
+
+
 var DEBUG = true;
 
 var USERS = {
@@ -96,6 +144,8 @@ io.sockets.on('connection', function(socket){
 	
 });
 
+var initPack = {player:[]};
+var removePack = {player:[]};
 
-}
+
 
