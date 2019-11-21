@@ -25,20 +25,25 @@ var USERS = {
 }
 
 var isValidPassword = function(data,cb){
-	setTimeout(function(){
-		cb(USERS[data.username] === data.password);
-	},10);
+	db.account.find({username:data.username,password:data.password},function(err,res){
+		if(res.length > 0)
+			cb(true);
+		else
+			cb(false);
+	});
 }
 var isUsernameTaken = function(data,cb){
-	setTimeout(function(){
-		cb(USERS[data.username]);
-	},10);
+	db.account.find({username:data.username},function(err,res){
+		if(res.length > 0)
+			cb(true);
+		else
+			cb(false);
+	});
 }
 var addUser = function(data,cb){
-	setTimeout(function(){
-		USERS[data.username] = data.password;
+	db.account.insert({username:data.username,password:data.password},function(err){
 		cb();
-	},10);
+	});
 }
 
 var io = require('socket.io')(serv,{});
