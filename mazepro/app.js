@@ -73,7 +73,7 @@ Player.onConnect = function(socket){
 	});
 	
 	var palyeing = [];
-	for 
+	for (var i in Player.list)
 	socket.emit('init', { player:[],})
 }
 
