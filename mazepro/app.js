@@ -42,7 +42,7 @@ self.getInitPack = function() {
 	};
 }
 
-//self.getUpdatePack = function() {
+self.getUpdatePack = function() {
           return {
 		  id:player.id,
 		  x:player.x,
