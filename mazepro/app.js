@@ -194,7 +194,7 @@ io.sockets.on('connection', function(socket){
 });
 
 var initPack = {player:[]};
-var removePack = {player:[]
+var removePack = {player:[]};
 		  
 		  
 		  
@@ -4512,4 +4512,3 @@ var removePack = {player:[]
 		  
 		  
 		  
-};
