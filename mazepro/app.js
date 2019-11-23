@@ -33,6 +33,10 @@ var Entity = function(){
 	return self;
 }
 
+var Player = function(id){
+	var self = Entity();
+	self.id = id;
+
 self.getInitPack = function() {
 	return {
 		id:self.id,
