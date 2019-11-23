@@ -1,22 +1,9 @@
-var 
-mongojs 
-= 
-    require
-("mongojs");
-var 
-db =
-    mongojs
-('localhost:27017/myGame', ['account','progress']);
+var mongojs = require("mongojs");
+var db = mongojs('localhost:27017/myGame', ['account','progress']);
 
-var
-express 
-= 
-    require('express');
-var 
-app =
-    express();
-var serv
-= require('http').Server(app);
+var express = require('express');
+var app = express();
+var serv = require('http').Server(app);
 
 app.get('/',function(req, res) {
 	res.sendFile(__dirname + '/client/index.html');
@@ -26,11 +13,9 @@ app.use('/client',express.static(__dirname + '/client'));
 serv.listen(2000);
 console.log("Server started.");
 
-var 
-SOCKET_LIST = {};
+var SOCKET_LIST = {};
 
-var 
-Entity = function(){
+var Entity = function(){
 	var self = {
 		x:250,
 		y:250,
@@ -49,40 +34,32 @@ Entity = function(){
 }
 
 var Player = function(id){
-	var 
-	self = Entity();
-	self.
-	id = id;
+	var self = Entity();
+	self.id = id;
 	self.pressingRight = true;
-	self.
-	pressingLeft = true;
-	self.p
-	ressingUp = true;
+	self.pressingLeft = true;
+	self.pressingUp = true;
 	self.pressingDown = true;
+	self.score = 0;
 }
 	
 
-
-
-
-
 self.getInitPack = function() {
 	return {
-		id:self
-		.id,
+		id:self.id,
 		x:self.x,
 		y:self.y,
-		number:self.number,
+		score:self.score,
+		
 	};
 }
 
-self.get
-UpdatePack = 
-	function() {
+self.getUpdatePack = function() {
           return {
 		  id:self.id,
 		  x:self.x,
 		  y:self.y,
+		  score:self.score,
 	  };
 }
 		
@@ -95,39 +72,9 @@ Player.list[id] = self;
 
 Player.list = {};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Player.onConnect = 
-	function(socket){
+Player.onConnect = function(socket){
 	var player = Player(socket.id);
 	socket.on('keyPress',function(data){
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		if(data.inputId === 'left')
 			player.pressingLeft = data.state;
 		else if(data.inputId === 'right')
@@ -143,11 +90,6 @@ Player.onConnect =
 	
 }
 
-
-
-
-
-
 Player.getAllInitPack = function() {
 	var players = [];
 	for(var i in Player.list)
@@ -155,20 +97,10 @@ Player.getAllInitPack = function() {
 	    return palyers;
 }
 
-
-
-
-
-
 Player.onDisconnect = function(socket){
 	delete Player.list[socket.id];
 	removePack.player.push(socket.id);
 }
-
-
-
-
-
 Player.update = function(){
 	var pack = [];
 	for(var i in Player.list){
@@ -182,15 +114,7 @@ Player.update = function(){
 
 var DEBUG = true;
 
-
-
-
-
-
 var USERS = {
-	
-	
-	
 	//username:password
 	"Tim":"Tm1",
 	"Ron":"Ro2",
@@ -198,12 +122,6 @@ var USERS = {
 }
 
 var isValidPassword = function(data,cb){
-	
-	
-	
-	
-	
-	
 	db.account.find({username:data.username,password:data.password},function(err,res){
 		if(res.length > 0)
 			cb(true);
@@ -212,100 +130,40 @@ var isValidPassword = function(data,cb){
 	});
 }
 var isUsernameTaken = function(data,cb){
-	
-	
-	
-	
 	db.account.find({username:data.username},function(err,res){
-		
-		
 		if(res.length > 0)
-			
-			
-			
-			
-			
-			
-			
 			cb(true);
 		else
 			cb(false);
 	});
 }
 var addUser = function(data,cb){
-	
-	
-	
 	db.account.insert({username:data.username,password:data.password},function(err){
 		cb();
 	});
 }
 
-
-
-
-
-
-
 var io = require('socket.io')(serv,{});
-
-
 io.sockets.on('connection', function(socket){
-	
-	
 	socket.id = Math.random();
 	SOCKET_LIST[socket.id] = socket;
 	
-	
-	
-	
-	
 	socket.on('signIn',function(data){
-		
-		
 		isValidPassword(data,function(res){
-			
-			
-			
 			if(res){
 				Player.onConnect(socket);
-				
-				
 				socket.emit('signInResponse',{success:true});
-				
-				
-				
 			} else {
 				socket.emit('signInResponse',{success:false});			
 			}
 		});
 	});
-	
-	
-	
-	
-	
 	socket.on('signUp',function(data){
-		
-		
 		isUsernameTaken(data,function(res){
-			
-			
 			if(res){
 				socket.emit('signUpResponse',{success:false});		
-				
-				
-				
-				
 			} else {
 				addUser(data,function(){
-					
-					
-					
-					
-					
-					
-					
 					socket.emit('signUpResponse',{success:true});					
 				});
 			}
@@ -313,44 +171,16 @@ io.sockets.on('connection', function(socket){
 	});
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	socket.on('disconnect',function(){
 		delete SOCKET_LIST[socket.id];
 		Player.onDisconnect(socket);
-		
-		
 	});
-	
-	
 	socket.on('sendMsgToServer',function(data){
-		
-		
 		var playerName = ("" + socket.id).slice(2,7);
-		
 		for(var i in SOCKET_LIST){
-			
-			
 			SOCKET_LIST[i].emit('addToChat',playerName + ': ' + data);
 		}
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	socket.on('evalServer',function(data){
 		if(!DEBUG)
@@ -362,17 +192,6 @@ io.sockets.on('connection', function(socket){
 	
 	
 });
-
-
-
-
-
-
-
-
-
-
-
 
 var initPack = {player:[]};
 var removePack = {player:[]};
