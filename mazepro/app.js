@@ -44,7 +44,9 @@ self.getInitPack = function() {
 
 //self.getUpdatePack = function() {
           return {
-		  id:player,
+		  id:player.id,
+		  x:player.x,
+		  y:player.y
 		
 
 Player.list[id] = self;
