@@ -36,10 +36,10 @@ var Entity = function(){
 var Player = function(id){
 	var self = Entity();
 	self.id = id;
-	self.pressingRight = false;
-	self.pressingLeft = false;
-	self.pressingUp = false;
-	self.pressingDown = false;
+	self.pressingRight = true;
+	self.pressingLeft = true;
+	self.pressingUp = true;
+	self.pressingDown = true;
 }
 	
 
