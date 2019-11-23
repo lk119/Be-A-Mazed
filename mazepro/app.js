@@ -40,6 +40,12 @@ var Player = function(id){
 	self.pressingLeft = false;
 	self.pressingUp = false;
 	self.pressingDown = false;
+	
+	
+	var super_update = self.update;
+	self.update = function(){
+		self.updateSpd();
+		super_update();
 
 self.getInitPack = function() {
 	return {
