@@ -72,6 +72,8 @@ Player.onConnect = function(socket){
 			player.pressingDown = data.state;
 	});
 	
+	var palyeing = [];
+	for 
 	socket.emit('init', { player:[],})
 }
 
