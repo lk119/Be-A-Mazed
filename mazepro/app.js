@@ -84,9 +84,7 @@ Player.update = function(){
 		player.update();
 		pack.push({
 			id:player.id,
-			x:player.x,
-			y:player.y,
-		});		
+		);		
 	}
 	return pack;
 }
