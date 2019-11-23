@@ -71,6 +71,8 @@ Player.onConnect = function(socket){
 		else if(data.inputId === 'down')
 			player.pressingDown = data.state;
 	});
+	
+	//socket.emit
 }
 
 Player.onDisconnect = function(socket){
