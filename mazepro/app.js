@@ -36,6 +36,7 @@ var Entity = function(){
 self.getInitPack = function() {
 	return {
 		id:self.id
+		x:self.x,
 		
 
 Player.list[id] = self;
