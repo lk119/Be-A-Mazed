@@ -39,6 +39,8 @@ self.getInitPack = function() {
 		x:self.x,
 		y:self.y,
 		number:self.number,
+	};
+}
 		
 
 Player.list[id] = self;
