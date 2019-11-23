@@ -78,7 +78,7 @@ Player.onConnect = function(socket){
 	socket.emit('init', { player:[],})
 }
 
-//players get signin pack
+Player.getAllInitPack = function() {
 
 Player.onDisconnect = function(socket){
 	delete Player.list[socket.id];
