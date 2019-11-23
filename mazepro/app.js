@@ -45,10 +45,10 @@ self.getInitPack = function() {
 
 Player.list[id] = self;
 	
-	initPack.player.push(self.getInitPack(),
-	);
+	initPack.player.push(self.getInitPack());
 	return self;
 }
+
 Player.list = {};
 
 Player.onConnect = function(socket){
