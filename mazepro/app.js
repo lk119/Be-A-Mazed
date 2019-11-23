@@ -72,7 +72,7 @@ Player.onConnect = function(socket){
 			player.pressingDown = data.state;
 	});
 	
-	//socket.emit
+	socket.emit('init', { player:[],})
 }
 
 Player.onDisconnect = function(socket){
