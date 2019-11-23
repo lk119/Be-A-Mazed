@@ -34,6 +34,8 @@ var Entity = function(){
 }
 
 self.getInitPack = function() {
+	return {
+		
 
 Player.list[id] = self;
 	
