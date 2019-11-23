@@ -40,6 +40,7 @@ var Player = function(id){
 	self.pressingLeft = false;
 	self.pressingUp = false;
 	self.pressingDown = false;
+}
 	
 
 self.getInitPack = function() {
