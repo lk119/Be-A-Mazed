@@ -73,7 +73,7 @@ Player.onConnect = function(socket){
 	});
 	
 	
-	socket.emit('init', { player:[],})
+	socket.emit('init', { player:Player.getAllInitPack(),})
 	
 }
 
