@@ -76,12 +76,15 @@ Player.onConnect = function(socket){
 	for (var i in Player.list)
 		players.push(Player.list[i].getInitPack());
 	socket.emit('init', { player:[],})
+	
 }
 
 Player.getAllInitPack = function() {
 	var players = [];
 	for(var i in Player.list)
 	    players.push(Player.list[i].getInitPack());
+	    return palyers;
+}
 
 Player.onDisconnect = function(socket){
 	delete Player.list[socket.id];
