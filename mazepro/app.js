@@ -33,6 +33,7 @@ var Entity = function(){
 	return self;
 }
 
+//self.getInitPack
 
 Player.list[id] = self;
 	
