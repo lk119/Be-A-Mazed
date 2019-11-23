@@ -42,7 +42,7 @@ self.getInitPack = function() {
 	};
 }
 
-//self.getUpdatePack 
+//self.getUpdatePack = function() {
 		
 
 Player.list[id] = self;
