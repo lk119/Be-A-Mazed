@@ -44,9 +44,9 @@ self.getInitPack = function() {
 
 self.getUpdatePack = function() {
           return {
-		  id:player.id,
-		  x:player.x,
-		  y:player.y,
+		  id:self.id,
+		  x:self.x,
+		  y:self.y,
 	  };
 }
 		
@@ -93,7 +93,7 @@ Player.update = function(){
 	for(var i in Player.list){
 		var player = Player.list[i];
 		player.update();
-		pack.push(self.getUpdatePack());		
+		pack.push(player.getUpdatePack());		
 	}
 	return pack;
 }
