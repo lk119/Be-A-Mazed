@@ -41,6 +41,8 @@ self.getInitPack = function() {
 		number:self.number,
 	};
 }
+
+//self.getUpdatePack 
 		
 
 Player.list[id] = self;
