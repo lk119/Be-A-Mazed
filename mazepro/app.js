@@ -82,8 +82,7 @@ Player.update = function(){
 	for(var i in Player.list){
 		var player = Player.list[i];
 		player.update();
-		pack.push({
-			id:player.id,
+		pack.push(self.getUpdatePack
 		);		
 	}
 	return pack;
