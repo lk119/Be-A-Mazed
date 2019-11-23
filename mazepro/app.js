@@ -48,9 +48,7 @@ Player.list[id] = self;
 	initPack.player.push({
 		id:self.id,
 		x:self.x,
-		y:self.y,	
-		number:self.number,	
-	});
+	);
 	return self;
 }
 Player.list = {};
