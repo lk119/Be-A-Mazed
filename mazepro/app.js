@@ -46,7 +46,9 @@ self.getInitPack = function() {
           return {
 		  id:player.id,
 		  x:player.x,
-		  y:player.y
+		  y:player.y,
+	  };
+}
 		
 
 Player.list[id] = self;
