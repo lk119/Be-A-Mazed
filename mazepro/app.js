@@ -35,7 +35,7 @@ var Entity = function(){
 
 self.getInitPack = function() {
 	return {
-		id:self.id
+		id:self.id,
 		x:self.x,
 		y:self.y,
 		number:self.number,
