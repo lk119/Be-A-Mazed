@@ -72,9 +72,7 @@ Player.onConnect = function(socket){
 			player.pressingDown = data.state;
 	});
 	
-	var palyers = [];
-	for (var i in Player.list)
-		players.push(Player.list[i].getInitPack());
+	
 	socket.emit('init', { player:[],})
 	
 }
