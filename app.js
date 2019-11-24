@@ -1,4 +1,3 @@
-$ heroku buildpacks:set heroku/nodejs
 
 require('./client/js/Player.js');
 
