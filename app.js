@@ -1,3 +1,5 @@
+$ heroku buildpacks:set heroku/nodejs
+
 require('./client/js/Player.js');
 
 var express = require('express');
