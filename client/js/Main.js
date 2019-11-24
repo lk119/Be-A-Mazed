@@ -10,7 +10,7 @@ window.onload = function() {
 	hideAllElementsExceptLogin();
 }
 
-function login() {
+function loginSuccessful() {
 		hideBoxesShowPlay()
 }
 
