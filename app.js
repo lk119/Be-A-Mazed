@@ -4,6 +4,7 @@ require('./client/js/Player.js');
 var express = require('express');
 var app = express();
 var serv = require('http').Server(app);
+var port = process.env.PORT || 3000;
 
 app.get('/',function(req, res) {
 	res.sendFile(__dirname + '/client/index.html');
@@ -11,8 +12,7 @@ app.get('/',function(req, res) {
 
 app.use('/client',express.static(__dirname + '/client'));
 
-serv.listen(8000);
-console.log("Server started.");
+
 
 var SOCKET_LIST = {};
 
